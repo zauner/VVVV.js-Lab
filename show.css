@@ -1,0 +1,19 @@
+textarea#xml{
+
+}
+
+div.screenshot_toolbar{
+  position:absolute;
+  background-color:#666666;
+  color:white;
+  padding:5px;
+}
+
+div.screenshot_toolbar a{
+  color:white;
+}
+
+#screenshot_image{
+  width:60px;
+  height:60px;
+}

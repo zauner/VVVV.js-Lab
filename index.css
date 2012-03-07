@@ -1,0 +1,109 @@
+body{
+  background-color:#dddddd;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  margin:0;
+}
+
+#menu_bar{
+  position:relative;
+  background:#343434;
+  color:white;
+  height:80px;
+  padding-left:30px;
+  box-shadow:0px 11px 14px #9a9a9a;
+}
+
+#menu_bar h1{
+  display:inline-block;
+  font-weight:bold;
+  font-size:14pt;
+  color:#dddddd;
+  letter-spacing:-0.1em;
+}
+
+#menu_bar h1 span{
+  color:yellow;
+}
+
+#menu_bar #display_switch{
+  position:absolute;
+  bottom:5px;
+  color:#aaaaaa;
+}
+
+#menu_bar #display_switch label{
+  font-weight:bold;
+  color:#dddddd;
+}
+
+#menu_bar #display_switch #display_toggle{
+  display:inline-block;
+  width:30px;
+  height:1em;
+  background:#888;
+  border-radius:3px;
+}
+
+#menu_bar #display_switch #display_toggle div{
+  width:16px;
+  height:1em;
+  background:#dddddd;
+  border-radius:3px;
+}
+
+#menu_bar #display_switch a.display_toggle{
+  background: #aaaaaa;
+  color: #dddddd;
+  padding:3px;
+}
+
+#patchlist{
+  position:relative;
+  height:2000px;
+}
+
+.patch_item{
+  display:block;
+  position:absolute;
+  width:225px;
+  border-top:2px solid black;
+  padding-top:1px;
+}
+
+.patch_item .screenshot_container{
+  height:150px;
+  overflow:hidden;
+}
+
+.patch_item .screenshot_container img{
+  margin-top:-37px;
+  width:225px;
+}
+
+.patch_item .patch_meta{
+  background:#000;
+  color:white;
+  margin-top:1px;
+  padding:3px;
+  text-transform:uppercase;
+}
+
+.patch_item .patch_meta .name{
+  display:block;
+  clear:right;
+  font-size:11pt;
+  font-weight:bold;
+}
+
+.patch_item .patch_meta .author{
+  font-size:9pt;
+}
+
+.patch_item .patch_meta .created_at{
+  font-size:9pt;
+  float:right;
+}
+
+#thepatch{
+  height:1000px
+}
