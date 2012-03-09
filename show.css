@@ -1,8 +1,9 @@
-textarea#xml{
-
+textarea{
+  display:none;
 }
 
 div.screenshot_toolbar{
+  display:none;
   position:absolute;
   background-color:#666666;
   color:white;
@@ -13,7 +14,57 @@ div.screenshot_toolbar a{
   color:white;
 }
 
-#screenshot_image{
-  width:60px;
-  height:60px;
+#shelf{
+  display:none;
+  background-color:#cccccc;
+  position:absolute;
+  height:200px;
+  width:100%;
+  left:0px;
+  padding:30px;
+  border-bottom: 1px solid #aaaaaa;
+  z-index:5;
 }
+
+#screenshot_image{
+  width:160px;
+  height:160px;
+  float:left;
+}
+
+#patch{
+  position:absolute;
+  right:0px;
+  top:80px;
+  border:1px solid #555555;
+}
+
+#shelf label{
+  float:left;
+  padding-left:10px;
+}
+
+input{
+  background:#aaaaaa;
+  color:#333;
+  border:1px solid #333;
+  height:2em;
+}
+
+input.text{
+  display:block;
+  margin-left:250px;
+  width:400px;
+  margin-bottom:5px;
+}
+
+input.button{
+  width:100px;
+  margin-left:5px;
+}
+
+input.button#save{
+  
+}
+
+

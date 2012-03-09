@@ -2,6 +2,8 @@ body{
   background-color:#dddddd;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   margin:0;
+  margin-left:30px;
+  color:#343434;
 }
 
 #menu_bar{
@@ -9,11 +11,13 @@ body{
   background:#343434;
   color:white;
   height:80px;
+  padding-top:15px;
+  margin-left:-30px;
   padding-left:30px;
   box-shadow:0px 11px 14px #9a9a9a;
 }
 
-#menu_bar h1{
+#menu_bar a.page_title{
   display:inline-block;
   font-weight:bold;
   font-size:14pt;
@@ -21,14 +25,36 @@ body{
   letter-spacing:-0.1em;
 }
 
-#menu_bar h1 span{
-  color:yellow;
+#menu_bar a.page_title span{
+  color:#AA3;
 }
 
-#menu_bar #display_switch{
+#menu_bar #controls{
   position:absolute;
   bottom:5px;
   color:#aaaaaa;
+}
+
+#menu_bar #controls a{
+ color:#343434;
+ background:#AA3;
+ width:140px;
+ display:inline-block;
+ text-decoration:none;
+ padding:3px;
+}
+
+#menu_bar #controls a.disabled{
+  text-decoration:line-through;
+  background:#aaaaaa;
+}
+
+a:visited{
+  color:inherit;
+}
+
+#menu_bar #display_switch{
+  
 }
 
 #menu_bar #display_switch label{
@@ -42,6 +68,7 @@ body{
   height:1em;
   background:#888;
   border-radius:3px;
+  padding:1px;
 }
 
 #menu_bar #display_switch #display_toggle div{
@@ -59,7 +86,16 @@ body{
 
 #patchlist{
   position:relative;
-  height:2000px;
+  margin-left:-30px;
+}
+
+#patchlist #patch_items{
+  position:absolute;
+  top:0px;
+}
+
+#patchlist #connections{
+  position:relative;
 }
 
 .patch_item{

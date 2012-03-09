@@ -6,7 +6,13 @@ $db = new databaseLocal();
 
 if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
 {
-  $db->query("INSERT INTO patch (name, author, screenshot, xml, created_at, parent_id, activated) VALUES('The red Quad returns', 'Zauner', '".$_REQUEST['screenshot_data']."', '".mysql_real_escape_string($_REQUEST['xml'])."', NOW(), ".intval($_REQUEST['parent_id']).", 1)");
+  $_REQUEST["patch"]["xml"] = mysql_real_escape_string($_REQUEST["patch"]["xml"]);
+  $_REQUEST["patch"]["screenshot"] = mysql_real_escape_string($_REQUEST["patch"]["screenshot"]);
+  $_REQUEST["patch"]["name"] = mysql_real_escape_string($_REQUEST["patch"]["name"]);
+  $_REQUEST["patch"]["author"] = mysql_real_escape_string($_REQUEST["patch"]["author"]);
+  $_REQUEST["patch"]["parent_id"] = intval($_REQUEST["patch"]["parent_id"]);
+  $_REQUEST["patch"]["created_at"] = date('Y-m-d H:i');
+  $db->add('patch', $_REQUEST["patch"]);
   echo "Saved.";
 }
 
@@ -42,29 +48,33 @@ function getHirarchy($id)
 <body>
   
 <div id="menu_bar">
-  <h1>VVVV.js <span>Lab</span></h1>
-  <div id="display_switch">
-    Display 
-    <label>Chronic</label>
-    <a href="#" id="display_toggle"><div></div></a>
-    <label>Evolution</label>
+  <a class="page_title">VVVV.js <span>Lab</span></a class="page_title">
+  <div id="controls">
+    <div id="display_switch">
+      Display 
+      <label>Chronic</label>
+      <a href="#" id="display_toggle"><div></div></a>
+      <label>Evolution</label>
+    </div>
   </div>
 </div>
 
 <div id="patchlist">
   <canvas id="connections" height="800" width="800"></canvas>
   <? $db->query("SELECT * FROM patch ORDER BY created_at DESC"); ?>
-  <? while ($db->next_record()): ?>
-    <? $hirarchy = getHirarchy($db->get("id")); ?>
-    <a class="patch_item" href="show.php?id=<?= $db->get("id") ?>" hirarchyhash="<?= $hirarchy ?>" createdat="<?= $db->get("created_at") ?>">
-      <div class="screenshot_container"><img src="<?= $db->get("screenshot") ?>"/></div>
-      <div class="patch_meta">
-        <span class="name"><?= $db->get("name") ?></span>
-        <span class="author"><?= $db->get("author") ?></span>
-        <span class="created_at"><?= $db->get("created_at") ?></span>
-      </div>
-    </a>
-  <? endwhile; ?>
+  <div id="patch_items">
+    <? while ($db->next_record()): ?>
+      <? $hirarchy = getHirarchy($db->get("id")); ?>
+      <a class="patch_item" href="show.php?id=<?= $db->get("id") ?>" hirarchyhash="<?= $hirarchy ?>" createdat="<?= $db->get("created_at") ?>">
+        <div class="screenshot_container"><img src="<?= $db->get("screenshot") ?>"/></div>
+        <div class="patch_meta">
+          <span class="name"><?= $db->get("name") ?></span>
+          <span class="author"><?= $db->get("author") ?></span>
+          <span class="created_at"><?= $db->get("created_at") ?></span>
+        </div>
+      </a>
+    <? endwhile; ?>
+  </div>
 </div>
 
 <div id='thepatch'></div>
