@@ -8,7 +8,10 @@ $(document).ready(function() {
         $('#open_save_shelf').removeClass('disabled');
         $('.screenshot_toolbar').show();
       },
-      error: function() { alert('NO!'); }
+      error: function() {
+        alert("Sorry, couldn't connect to VVVV. Make sure, you have an empty VVVV patch open, containing only a VVVVJsConnector node.");
+        location.hash = '#';
+      }
     });
   }
   if (window.location.hash=='#edit')
