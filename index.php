@@ -70,7 +70,7 @@ function getHirarchy($id)
         <div class="patch_meta">
           <span class="name"><?= $db->get("name") ?></span>
           <span class="author"><?= $db->get("author") ?></span>
-          <span class="created_at"><?= $db->get("created_at") ?></span>
+          <span class="created_at"><?= strftime('%d. %b', strtotime($db->get("created_at"))) ?></span>
         </div>
       </a>
     <? endwhile; ?>
