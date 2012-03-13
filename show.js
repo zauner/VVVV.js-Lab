@@ -79,10 +79,10 @@ $(document).ready(function() {
       if (!$(this).next().is('div.screenshot_toolbar')) {
         var that = this;
         $screenshot_toolbar = $('<div class="screenshot_toolbar"><a href="#" class="make_screenshot">Screenshot</a></div>');
-        if (location.hash=='#edit')
-          $screenshot_toolbar.show();
         $(this).after($screenshot_toolbar);
         
+        if (location.hash=='#edit') 
+          $screenshot_toolbar.css('display', 'block');
         $screenshot_toolbar.css('top', $(this).position().top);
         $screenshot_toolbar.css('left', $(this).position().left);
         $screenshot_toolbar.find('a.make_screenshot').click(function() {
