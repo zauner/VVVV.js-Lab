@@ -79,6 +79,8 @@ $(document).ready(function() {
       if (!$(this).next().is('div.screenshot_toolbar')) {
         var that = this;
         $screenshot_toolbar = $('<div class="screenshot_toolbar"><a href="#" class="make_screenshot">Screenshot</a></div>');
+        if (location.hash=='#edit')
+          $screenshot_toolbar.show();
         $(this).after($screenshot_toolbar);
         
         $screenshot_toolbar.css('top', $(this).position().top);
