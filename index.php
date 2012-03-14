@@ -35,7 +35,7 @@ function getHirarchy($id)
 <title>VVVV.js Lab</title>
 <link rel="stylesheet" type="text/css" href="vvvv_js/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="index.css"/>
-<script language="JavaScript" src="vvvv_js/lib/jquery/jquery-1.4.2.min.js"></script> 
+<script language="JavaScript" src="vvvv_js/lib/jquery/jquery-1.7.1.min.js"></script> 
 <script language="JavaScript" src="vvvv_js/vvvv.js"></script>
 <script language="VVVV" src="index.v4p"></script>
 <script language="JavaScript">

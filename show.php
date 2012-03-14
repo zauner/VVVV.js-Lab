@@ -17,7 +17,7 @@ $name = $db->get("name");
 <link rel="stylesheet" type="text/css" href="vvvv_js/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="index.css"/>
 <link rel="stylesheet" type="text/css" href="show.css"/>
-<script language="JavaScript" src="vvvv_js/lib/jquery/jquery-1.4.2.min.js"></script> 
+<script language="JavaScript" src="vvvv_js/lib/jquery/jquery-1.7.1.min.js"></script> 
 <script language="JavaScript" src="vvvv_js/vvvv.js"></script>
 <script language="VVVV" src="patch.v4p.php?id=<?= $id ?>"></script>
 <script language="JavaScript" src="show.js"></script>
