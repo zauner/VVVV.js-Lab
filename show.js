@@ -2,8 +2,8 @@ $(document).ready(function() {
   initVVVV('vvvv_js', 'full');
   
   function establishVVVVConnection() {
-    VVVV.Patches[0].clientbridge.host = 'ws://localhost';
-    VVVV.Patches[0].clientbridge.enable({
+    VVVV.Patches[0].VVVVConnector.host = 'ws://localhost';
+    VVVV.Patches[0].VVVVConnector.enable({
       success: function() {
         $('#open_save_shelf').removeClass('disabled');
         $('.screenshot_toolbar').show();
@@ -41,7 +41,7 @@ $(document).ready(function() {
       alert("Please give a title and your name.");
       return false;
     }
-    VVVV.Patches[0].clientbridge.pullCompletePatch();
+    VVVV.Patches[0].VVVVConnector.pullCompletePatch();
     window.setTimeout(function() {
       $('#xml').text(VVVV.Patches[0].XMLCode);
       $('#new_form').submit();
