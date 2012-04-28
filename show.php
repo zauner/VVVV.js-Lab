@@ -15,6 +15,7 @@ $name = $db->get("name");
 <head>
 <title>VVVV.js Lab: <?= $name ?> by <?= $db->get("author") ?></title>
 <link rel="image_src" href="screenshot.php?id=<?= $id ?>"/>
+<meta property="og:image" content="screenshot.php?id=<?= $id ?>"/>
 <link rel="stylesheet" type="text/css" href="vvvv_js/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="index.css"/>
 <link rel="stylesheet" type="text/css" href="show.css"/>
@@ -24,6 +25,8 @@ $name = $db->get("name");
 <script language="JavaScript" src="show.js"></script>
 </head>
 <body>
+  
+<img src="screenshot.php?id=<?= $id ?>" style="display:none"/>
   
 <div id="menu_bar">
   <a href="index.php" class="page_title">VVVV.js <span>Lab</span></a>
