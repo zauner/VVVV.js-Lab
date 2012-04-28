@@ -15,7 +15,9 @@ $name = $db->get("name");
 <head>
 <title>VVVV.js Lab: <?= $name ?> by <?= $db->get("author") ?></title>
 <link rel="image_src" href="screenshot.php?id=<?= $id ?>"/>
-<meta property="og:image" content="http://<?= $_SERVER["SERVER_NAME"].'/'.dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $id ?>"/>
+<meta property="og:image" content="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $id ?>"/>
+<meta property="og:title" content="VVVV.js Lab: <?= $name ?> by <?= $db->get("author") ?>"/>
+<meta property="og:description" content="The VVVV.js Lab is a place to view, share and try VVVV.js patches."/>
 <link rel="stylesheet" type="text/css" href="vvvv_js/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="index.css"/>
 <link rel="stylesheet" type="text/css" href="show.css"/>
@@ -36,7 +38,7 @@ $name = $db->get("name");
     <a href="#" id="open_save_shelf" class="disabled">Save As ...</a>
   </div>
   <div id="social_buttons">
-    <g:plusone size="tall" href="http://<?= $_SERVER['SERVER_NAME'].'/'.$_SERVER['REQUEST_URI'] ?>"></g:plusone><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="tall" href="http://<?= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] ?>"></g:plusone><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     <iframe src="http://www.facebook.com/plugins/like.php?href=<?= urlencode("http://".$_SERVER['SERVER_NAME'].'/'.$_SERVER['REQUEST_URI']); ?>&amp;send=false&amp;layout=box_count&amp;width=60&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=60" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:60px;" allowTransparency="true"></iframe>
   </div>
 </div>
