@@ -13,7 +13,8 @@ $name = $db->get("name");
 
 <html>
 <head>
-<title>VVVV.js Lab</title>
+<title>VVVV.js Lab: <?= $name ?> by <?= $db->get("author") ?></title>
+<link rel="image_src" href="screenshot.php?id=<?= $id ?>"/>
 <link rel="stylesheet" type="text/css" href="vvvv_js/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="index.css"/>
 <link rel="stylesheet" type="text/css" href="show.css"/>
@@ -30,6 +31,10 @@ $name = $db->get("name");
     <a href="#" id="showpatch">Show Patch</a>
     <a href="#edit" id="edit">Sync to VVVV + Edit</a>
     <a href="#" id="open_save_shelf" class="disabled">Save As ...</a>
+  </div>
+  <div id="social_buttons">
+    <g:plusone size="tall" href="http://vvvvjs.quasipartikel.at/beta/lab/show.php?id=<?= $id ?>"></g:plusone><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <iframe src="http://www.facebook.com/plugins/like.php?href=<?= urlencode("http://vvvvjs.quasipartikel.at/beta/lab/show.php?id=$id"); ?>&amp;send=false&amp;layout=box_count&amp;width=60&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=60" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:60px;" allowTransparency="true"></iframe>
   </div>
 </div>
 

@@ -14,6 +14,18 @@ div.screenshot_toolbar a{
   color:white;
 }
 
+#menu_bar #social_buttons{
+  position:absolute;
+  bottom:5px;
+  right:0px;
+  color:#aaaaaa;
+  text-align:right;
+}
+
+#menu_bar #social_buttons iframe{
+
+}
+
 #shelf{
   display:none;
   background-color:#cccccc;
@@ -35,7 +47,7 @@ div.screenshot_toolbar a{
 #patch{
   position:absolute;
   right:0px;
-  top:80px;
+  top:95px;
   border:1px solid #555555;
 }
 
