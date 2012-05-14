@@ -56,7 +56,7 @@ $name = $db->get("name");
     <label>Title</label><input class="text" type="text" name="patch[name]"/>
     <label>Your Name</label><input class="text" type="text" name="patch[author]"/>
     <input class="button" type="button" id="save" value="Save"/>
-    <input class="button" type="button" value="Cancel"/>
+    <input class="button close" type="button" value="Cancel"/>
   </form>
 </div>
 
