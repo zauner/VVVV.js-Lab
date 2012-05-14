@@ -143,3 +143,86 @@ a:visited{
 #thepatch{
   height:1000px
 }
+
+
+
+.shelf{
+  display:none;
+  background-color:#cccccc;
+  position:absolute;
+  width:100%;
+  left:0px;
+  padding:30px;
+  border-bottom: 1px solid #aaaaaa;
+  z-index:5;
+}
+
+.shelf h2{
+  margin-top:0px;
+  font-weight:bold;
+  font-size:14pt;
+}
+
+.shelf a, .shelf a:visited{
+  text-decoration:underline;
+  color:black;
+}
+
+.shelf p{
+  width:600px;
+}
+
+.shelf .message{
+  font-weight:bold;
+  display:inline-block;
+  margin-bottom:1em;
+  padding-right:4px;
+}
+
+.shelf .message span{
+  color:white;
+  padding:2px;
+  display:inline-block;
+  width:1em;
+  text-align:center;
+}
+
+.shelf .message.error{
+  border:1px solid #b60000;
+}
+
+.shelf .message.error span{
+  background-color:#b60000;
+}
+
+.shelf .message.success{
+  border:1px solid #359d0c;
+}
+
+.shelf .message.success span{
+  background-color:#359d0c;
+}
+
+.shelf label{
+  float:left;
+  padding-left:10px;
+}
+
+input{
+  background:#aaaaaa;
+  color:#333;
+  border:1px solid #333;
+  height:2em;
+}
+
+input.text{
+  display:block;
+  margin-left:250px;
+  width:400px;
+  margin-bottom:5px;
+}
+
+input.button{
+  width:100px;
+  margin-left:5px;
+}

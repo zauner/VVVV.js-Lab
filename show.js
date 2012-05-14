@@ -5,11 +5,12 @@ $(document).ready(function() {
     VVVV.Patches[0].VVVVConnector.host = 'ws://localhost';
     VVVV.Patches[0].VVVVConnector.enable({
       success: function() {
+        $('.shelf').slideUp();
         $('#open_save_shelf').removeClass('disabled');
         $('.screenshot_toolbar').show();
       },
       error: function() {
-        alert("Sorry, couldn't connect to VVVV. Make sure, you have an empty VVVV patch open, containing only a VVVVJsConnector node.");
+        openShelf('connection_error');
         location.hash = '#';
       }
     });
@@ -24,17 +25,23 @@ $(document).ready(function() {
   
   $('#open_save_shelf').click(function() {
     if ($(this).hasClass('disabled')) {
-      alert('To save a new revision of this patch, start VVVV on your machine, and add the VVVVJsConnector node to an empty patch. Then hit "Edit this patch".')
+      openShelf('not_connected');
       return false;
     }
-    $('#shelf').slideDown();
+    openShelf('save');
+
+    return false;
+  });
+  
+  $('.open_help_shelf').click(function() {
+    openShelf('help');
     return false;
   });
   
   $('#save').click(function() {
     if ($('#screenshot_data').text().length==0) {
       alert("You should make a screenshot for the gallery before you save. Just hit the Screenshot button on the top left of a renderer.");
-      $('#shelf').slideUp();
+      $('#save_shelf').slideUp();
       return false;
     }
     if ($('form input:text[value=""]').length>0) {
@@ -49,13 +56,9 @@ $(document).ready(function() {
     return false;
   });
   
-  $('#cancel').click(function() {
-    $('#shelf').slideUp();
-  })
-  
   var vvvviewer = undefined;
   $('#showpatch').click(function() {
-    $('#shelf').slideUp();
+    $('.shelf').slideUp();
     if (!vvvviewer) {
       vvvviewer = new VVVV.VVVViewer(VVVV.Patches[0], '#patch');
       $('#patch').slideDown();
@@ -89,7 +92,7 @@ $(document).ready(function() {
           var data = $(that).get(0).toDataURL('image/png');
           $('#screenshot_image').attr('src', data);
           $('#screenshot_data').text(data);
-          $('#shelf').slideDown();
+          $('#save_shelf').slideDown();
           return false;
         });
       }

@@ -14,30 +14,6 @@ div.screenshot_toolbar a{
   color:white;
 }
 
-#menu_bar #social_buttons{
-  position:absolute;
-  bottom:5px;
-  right:0px;
-  color:#aaaaaa;
-  text-align:right;
-}
-
-#menu_bar #social_buttons iframe{
-
-}
-
-#shelf{
-  display:none;
-  background-color:#cccccc;
-  position:absolute;
-  height:200px;
-  width:100%;
-  left:0px;
-  padding:30px;
-  border-bottom: 1px solid #aaaaaa;
-  z-index:5;
-}
-
 #screenshot_image{
   width:160px;
   height:160px;
@@ -51,29 +27,18 @@ div.screenshot_toolbar a{
   border:1px solid #555555;
 }
 
-#shelf label{
-  float:left;
-  padding-left:10px;
+#menu_bar #social_buttons{
+  position:absolute;
+  bottom:5px;
+  right:0px;
+  color:#aaaaaa;
+  text-align:right;
 }
 
-input{
-  background:#aaaaaa;
-  color:#333;
-  border:1px solid #333;
-  height:2em;
+#menu_bar #social_buttons iframe{
+
 }
 
-input.text{
-  display:block;
-  margin-left:250px;
-  width:400px;
-  margin-bottom:5px;
-}
-
-input.button{
-  width:100px;
-  margin-left:5px;
-}
 
 input.button#save{
   
