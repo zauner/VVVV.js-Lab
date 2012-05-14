@@ -34,6 +34,7 @@ function getHirarchy($id)
 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>VVVV.js Lab</title>
 <link rel="stylesheet" type="text/css" href="vvvv_js/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="main.css"/>
@@ -96,7 +97,7 @@ function getHirarchy($id)
       <a class="patch_item" href="show.php?id=<?= $db->get("id") ?>" hirarchyhash="<?= $hirarchy ?>" createdat="<?= $db->get("created_at") ?>">
         <div class="screenshot_container"><img src="<?= $db->get("screenshot") ?>"/></div>
         <div class="patch_meta">
-          <span class="name"><?= $db->get("name") ?></span>
+          <span class="name"><?= strlen($db->get("name"))>19 ? substr($db->get("name"), 0, 19)."..." : $db->get("name") ?></span>
           <span class="author"><?= $db->get("author") ?></span>
           <span class="created_at"><?= strftime('%d. %b', strtotime($db->get("created_at"))) ?></span>
         </div>

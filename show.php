@@ -13,6 +13,7 @@ $name = $db->get("name");
 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>VVVV.js Lab: <?= $name ?> by <?= $db->get("author") ?></title>
 <link rel="image_src" href="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $id ?>"/>
 <meta property="og:image" content="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $id ?>"/>
