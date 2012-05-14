@@ -44,4 +44,18 @@ input.button#save{
   
 }
 
+#log_message{
+  display:none;
+  font-weight:bold;
+  background-color:#cccccc;
+  position:absolute;
+  width:200px;
+  right:10px;
+  top:110px;
+  padding:30px;
+  border: 2px solid #b60000;
+  z-index:6;
+  border-radius:5px;
+}
+
 

@@ -1,4 +1,14 @@
 $(document).ready(function() {
+  
+  var message_hide_timeout;
+  VVVV.onNotImplemented = function(nodename) {
+    clearTimeout(message_hide_timeout);
+    $('#log_message').html(nodename+" is not implemented yet!");
+    $('#log_message').show();
+    message_hide_timeout = window.setTimeout(function() {
+      $('#log_message').fadeOut();
+    }, 3000);
+  }
   initVVVV('vvvv_js', 'full');
   
   function establishVVVVConnection() {
