@@ -43,8 +43,9 @@ function getHirarchy($id)
 <script language="JavaScript" src="vvvv_js/vvvv.js"></script>
 <script language="VVVV" src="index.v4p"></script>
 <script language="JavaScript">
-  $(document).ready(function() {
+  $(window).load(function() {
     initVVVV('vvvv_js', 'full');
+    $('#patchlist').show();
     //var vvvviewer = new VVVV.VVVViewer(VVVV.Patches[0], '#thepatch');
   })
 </script>
@@ -95,7 +96,7 @@ function getHirarchy($id)
     <? while ($db->next_record()): ?>
       <? $hirarchy = getHirarchy($db->get("id")); ?>
       <a class="patch_item" href="show.php?id=<?= $db->get("id") ?>" hirarchyhash="<?= $hirarchy ?>" createdat="<?= $db->get("created_at") ?>">
-        <div class="screenshot_container"><img src="<?= $db->get("screenshot") ?>"/></div>
+        <div class="screenshot_container"><img src="screenshot.php?id=<?= $db->get("id") ?>"/></div>
         <div class="patch_meta">
           <span class="name"><?= strlen($db->get("name"))>19 ? substr($db->get("name"), 0, 19)."..." : $db->get("name") ?></span>
           <span class="author"><?= $db->get("author") ?></span>

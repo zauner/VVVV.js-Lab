@@ -85,6 +85,7 @@ a:visited{
 }
 
 #patchlist{
+  display:none;
   position:relative;
   margin-left:-30px;
 }
