@@ -65,6 +65,7 @@ $name = $db->get("name");
 </div>
 
 <div class="shelf" id="help_shelf">
+  <h2>Help</h2>
   <p>
     Here at the <b>VVVV.js lab</b>, you can <b>push every patch to a VVVV instance</b> on your machine, play around with it, and <b>save it as a new revision</b>. Don't worry, you won't break or overwrite anything doing so.<br/>
   </p>
