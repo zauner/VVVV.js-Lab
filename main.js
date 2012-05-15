@@ -9,7 +9,7 @@ $(document).ready(function() {
     openShelf("create_success");
   }
   
-  if (document.cookie.indexOf("welcome_message_read=1")>=0) {
+  if (document.cookie.indexOf("welcome_message_read=1")<0) {
     openShelf('welcome');
     document.cookie = "welcome_message_read=1;"
   }
