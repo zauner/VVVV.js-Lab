@@ -9,7 +9,7 @@ $(document).ready(function() {
       $('#log_message').fadeOut();
     }, 3000);
   }
-  initVVVV('vvvv_js-18135f05ff', 'full');
+  initVVVV('vvvv_js-b687505452', 'full');
   
   function establishVVVVConnection() {
     VVVV.Patches[0].VVVVConnector.host = 'ws://localhost';

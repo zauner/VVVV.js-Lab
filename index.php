@@ -36,15 +36,15 @@ function getHirarchy($id)
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>VVVV.js Lab</title>
-<link rel="stylesheet" type="text/css" href="vvvv_js-18135f05ff/vvvviewer/vvvv.css"/>
+<link rel="stylesheet" type="text/css" href="vvvv_js-b687505452/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="main.css"/>
-<script language="JavaScript" src="vvvv_js-18135f05ff/lib/jquery/jquery-1.7.1.min.js"></script>
+<script language="JavaScript" src="vvvv_js-b687505452/lib/jquery/jquery-1.7.1.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
-<script language="JavaScript" src="vvvv_js-18135f05ff/vvvv.js"></script>
+<script language="JavaScript" src="vvvv_js-b687505452/vvvv.js"></script>
 <script language="VVVV" src="index.v4p"></script>
 <script language="JavaScript">
   $(window).load(function() {
-    initVVVV('vvvv_js-18135f05ff', 'full');
+    initVVVV('vvvv_js-b687505452', 'full');
     $('#patchlist').show();
     //var vvvviewer = new VVVV.VVVViewer(VVVV.Patches[0], '#thepatch');
   })

@@ -19,14 +19,14 @@ $name = $db->get("name");
 <meta property="og:image" content="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $id ?>"/>
 <meta property="og:title" content="VVVV.js Lab: <?= $name ?> by <?= $db->get("author") ?>"/>
 <meta property="og:description" content="The VVVV.js Lab is a place to view, share and try VVVV.js patches."/>
-<link rel="stylesheet" type="text/css" href="vvvv_js-18135f05ff/vvvviewer/vvvv.css"/>
+<link rel="stylesheet" type="text/css" href="vvvv_js-b687505452/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="main.css"/>
 <link rel="stylesheet" type="text/css" href="show.css"/>
-<script language="JavaScript" src="vvvv_js-18135f05ff/lib/jquery/jquery-1.7.1.min.js"></script>
+<script language="JavaScript" src="vvvv_js-b687505452/lib/jquery/jquery-1.7.1.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
-<script language="JavaScript" src="vvvv_js-18135f05ff/vvvv.js"></script>
+<script language="JavaScript" src="vvvv_js-b687505452/vvvv.js"></script>
 <script language="VVVV" src="patch.v4p.php?id=<?= $id ?>"></script>
-<script language="JavaScript" src="show.js?18135f05ff"></script>
+<script language="JavaScript" src="show.js?b687505452"></script>
 </head>
 <body>
   
