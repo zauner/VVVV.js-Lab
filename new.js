@@ -1,5 +1,7 @@
 $(document).ready(function() {
   VVVV.Config.auto_undo = true;
+  var patch;
+  var mainloop;
   
   var message_hide_timeout;
   VVVV.onNotImplemented = function(nodename) {
@@ -12,27 +14,17 @@ $(document).ready(function() {
   }
   VVVV.init('vvvv_js-b687505452', 'full', function() {
   
-    function establishVVVVConnection() {
-      VVVV.Patches[0].VVVVConnector.host = 'ws://localhost';
-      VVVV.Patches[0].VVVVConnector.enable({
-        success: function() {
-          $('.shelf').slideUp();
-          $('#open_save_shelf').removeClass('disabled');
-          $('.screenshot_toolbar').show();
-        },
-        error: function() {
-          openShelf('connection_error');
-          location.hash = '#';
-        }
-      });
-    }
-    if (window.location.hash=='#edit')
-      establishVVVVConnection();
-    
-    $(window).bind('hashchange', function() {
-      if (window.location.hash=='#edit')
-        establishVVVVConnection(); 
-    });
+    patch = new VVVV.Core.Patch("ws://localhost",
+      function() {
+        mainloop = new VVVV.Core.MainLoop(this);
+        $('.shelf').slideUp();
+        $('#open_save_shelf').removeClass('disabled');
+        $('#showpatch').removeClass('disabled');
+      },
+      function() {
+        openShelf('connection_error');
+      }
+    );
     
     $('#open_save_shelf').click(function() {
       if ($(this).hasClass('disabled')) {
@@ -59,9 +51,9 @@ $(document).ready(function() {
         alert("Please give a title and your name.");
         return false;
       }
-      VVVV.Patches[0].VVVVConnector.pullCompletePatch();
+      patch.VVVVConnector.pullCompletePatch();
       window.setTimeout(function() {
-        $('#xml').text(VVVV.Patches[0].XMLCode);
+        $('#xml').text(patch.XMLCode);
         $('#new_form').submit();
       }, 1000);
       return false;
@@ -71,7 +63,7 @@ $(document).ready(function() {
     $('#showpatch').click(function() {
       $('.shelf').slideUp();
       if (!vvvviewer) {
-        vvvviewer = new VVVV.VVVViewer(VVVV.Patches[0], '#patch');
+        vvvviewer = new VVVV.VVVViewer(patch, '#patch');
         $('#patch').slideDown();
         $('#showpatch').text('Hide Patch');
       }
@@ -95,8 +87,7 @@ $(document).ready(function() {
           $screenshot_toolbar = $('<div class="screenshot_toolbar"><a href="#" class="make_screenshot">Screenshot</a></div>');
           $(this).after($screenshot_toolbar);
           
-          if (location.hash=='#edit') 
-            $screenshot_toolbar.css('display', 'block');
+          $screenshot_toolbar.css('display', 'block');
           $screenshot_toolbar.css('top', $(this).position().top);
           $screenshot_toolbar.css('left', $(this).position().left);
           $screenshot_toolbar.find('a.make_screenshot').click(function() {

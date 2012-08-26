@@ -10,7 +10,8 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
   $_REQUEST["patch"]["screenshot"] = mysql_real_escape_string($_REQUEST["patch"]["screenshot"]);
   $_REQUEST["patch"]["name"] = mysql_real_escape_string($_REQUEST["patch"]["name"]);
   $_REQUEST["patch"]["author"] = mysql_real_escape_string($_REQUEST["patch"]["author"]);
-  $_REQUEST["patch"]["parent_id"] = intval($_REQUEST["patch"]["parent_id"]);
+  if (isset($_REQUEST["patch"]["parent_id"]))
+    $_REQUEST["patch"]["parent_id"] = intval($_REQUEST["patch"]["parent_id"]);
   $_REQUEST["patch"]["created_at"] = date('Y-m-d H:i');
   $db->add('patch', $_REQUEST["patch"]);
   
@@ -27,7 +28,7 @@ function getHirarchy($id)
   $ret = '';
   if ($db->get("parent_id")!="")
     $ret = getHirarchy($db->get("parent_id"));
-  return $ret.'-'.$id;
+  return $ret.'-'.str_pad($id, 4, '0', STR_PAD_LEFT);
 }
 
 ?>
@@ -44,9 +45,10 @@ function getHirarchy($id)
 <script language="VVVV" src="index.v4p"></script>
 <script language="JavaScript">
   $(window).load(function() {
-    initVVVV('vvvv_js-b687505452', 'full');
-    $('#patchlist').show();
-    //var vvvviewer = new VVVV.VVVViewer(VVVV.Patches[0], '#thepatch');
+    VVVV.init('vvvv_js-b687505452', 'full', function() {
+      $('#patchlist').show();
+      //var vvvviewer = new VVVV.VVVViewer(VVVV.Patches[0], '#thepatch');
+    });
   })
 </script>
 </head>
