@@ -54,7 +54,8 @@ a:visited{
 }
 
 #menu_bar #display_switch{
-  
+  display:inline-block;
+  margin-left:45px;
 }
 
 #menu_bar #display_switch label{
@@ -86,6 +87,8 @@ a:visited{
 
 #patchlist{
   display:none;
+  bottom:0px;
+  overflow:hidden;
   position:relative;
   margin-left:-30px;
 }

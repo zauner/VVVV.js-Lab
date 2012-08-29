@@ -57,6 +57,7 @@ function getHirarchy($id)
 <div id="menu_bar">
   <a class="page_title">VVVV.js <span>Lab</span></a class="page_title">
   <div id="controls">
+    <a href="new.php" id="showpatch">New Patch</a>
     <div id="display_switch">
       Display 
       <label>Chronic</label>
@@ -108,8 +109,6 @@ function getHirarchy($id)
     <? endwhile; ?>
   </div>
 </div>
-
-<div id='thepatch'></div>
 
 </body>
 </html>
