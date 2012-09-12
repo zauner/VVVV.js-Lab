@@ -3,10 +3,10 @@ header('Content-Type: image/png');
 
 include_once('lib/class.database.php');
 
-$id = intval($_REQUEST["id"]);
+$hash = mysql_real_escape_string($_REQUEST["id"]);
 
 $db = new databaseLocal();
-$db->query("SELECT screenshot FROM patch WHERE id=$id");
+$db->query("SELECT screenshot FROM patch WHERE hash='$hash'");
 $db->next_record();
 $data = explode(';', $db->get("screenshot"));
 $data = explode(',', $data[1]);

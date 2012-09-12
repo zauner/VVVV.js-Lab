@@ -2,10 +2,10 @@
 
 include_once('lib/class.database.php');
 
-$id = intval($_REQUEST["id"]);
+$hash = mysql_real_escape_string($_REQUEST["id"]);
 
 $db = new databaseLocal();
-$db->query("SELECT * FROM patch WHERE id=$id");
+$db->query("SELECT * FROM patch WHERE hash='$hash'");
 $db->next_record();
 
 echo $db->get("xml");

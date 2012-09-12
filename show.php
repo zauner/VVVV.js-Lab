@@ -2,10 +2,10 @@
 
 include_once('lib/class.database.php');
 
-$id = intval($_REQUEST["id"]);
+$hash = mysql_real_escape_string($_REQUEST["id"]);
 
 $db = new databaseLocal();
-$db->query("SELECT * FROM patch WHERE id=$id");
+$db->query("SELECT * FROM patch WHERE hash='$hash'");
 $db->next_record();
 $name = $db->get("name");
 
@@ -15,8 +15,8 @@ $name = $db->get("name");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>VVVV.js Lab: <?= $name ?> by <?= $db->get("author") ?></title>
-<link rel="image_src" href="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $id ?>"/>
-<meta property="og:image" content="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $id ?>"/>
+<link rel="image_src" href="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $hash ?>"/>
+<meta property="og:image" content="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/'; ?>screenshot.php?id=<?= $hash ?>"/>
 <meta property="og:title" content="VVVV.js Lab: <?= $name ?> by <?= $db->get("author") ?>"/>
 <meta property="og:description" content="The VVVV.js Lab is a place to view, share and try VVVV.js patches."/>
 <link rel="stylesheet" type="text/css" href="vvvv_js-b687505452/vvvviewer/vvvv.css"/>
@@ -25,12 +25,12 @@ $name = $db->get("name");
 <script language="JavaScript" src="vvvv_js-b687505452/lib/jquery/jquery-1.7.1.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
 <script language="JavaScript" src="vvvv_js-b687505452/vvvv.js"></script>
-<script language="VVVV" src="patch.v4p.php?id=<?= $id ?>"></script>
+<script language="VVVV" src="patch.v4p.php?id=<?= $hash ?>"></script>
 <script language="JavaScript" src="show.js?b687505452"></script>
 </head>
 <body>
   
-<img src="screenshot.php?id=<?= $id ?>" style="display:none"/>
+<img src="screenshot.php?id=<?= $hash ?>" style="display:none"/>
   
 <div id="menu_bar">
   <a href="index.php" class="page_title">VVVV.js <span>Lab</span></a>
@@ -49,7 +49,7 @@ $name = $db->get("name");
 <div class="shelf" id="save_shelf">
   <form action="index.php" method="post" id="new_form">
     <input type="hidden" name="action" value="create"/>
-    <input type="hidden" name="patch[parent_id]" value="<?= $id ?>"/>
+    <input type="hidden" name="patch[parent_id]" value="<?= $hash ?>"/>
     <textarea id="xml" name="patch[xml]"></textarea>
     <textarea id="screenshot_data" name="patch[screenshot]"></textarea>
     <img src="img/placeholder.png" id="screenshot_image"/>

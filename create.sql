@@ -27,6 +27,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `patch` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
+  `hash` varchar(255) NOT NULL,
   `name` varchar(50) NOT NULL,
   `author` varchar(50) NOT NULL,
   `screenshot` mediumtext NOT NULL,

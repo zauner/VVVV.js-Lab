@@ -10,9 +10,17 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
   $_REQUEST["patch"]["screenshot"] = mysql_real_escape_string($_REQUEST["patch"]["screenshot"]);
   $_REQUEST["patch"]["name"] = mysql_real_escape_string($_REQUEST["patch"]["name"]);
   $_REQUEST["patch"]["author"] = mysql_real_escape_string($_REQUEST["patch"]["author"]);
-  if (isset($_REQUEST["patch"]["parent_id"]))
-    $_REQUEST["patch"]["parent_id"] = intval($_REQUEST["patch"]["parent_id"]);
+  if (isset($_REQUEST["patch"]["parent_id"])) {
+    $db->query("SELECT * FROM patch WHERE hash='".mysql_real_escape_string($_REQUEST["patch"]["parent_id"])."'");
+    if ($db->next_record())
+      $_REQUEST["patch"]["parent_id"] = $db->get("id");
+    else {
+      echo "Error: no patch with id ".$_REQUEST["patch"]["parent_id"]." found. Dying now.";
+      die;
+    }
+  }
   $_REQUEST["patch"]["created_at"] = date('Y-m-d H:i');
+  $_REQUEST["patch"]["hash"] = sha1(uniqid(mt_rand(), true));
   $db->add('patch', $_REQUEST["patch"]);
   
   header("Location: ".$_SCRIPT["PHP_SELF"]."#create_success");
@@ -98,8 +106,8 @@ function getHirarchy($id)
   <div id="patch_items">
     <? while ($db->next_record()): ?>
       <? $hirarchy = getHirarchy($db->get("id")); ?>
-      <a class="patch_item" href="show.php?id=<?= $db->get("id") ?>" hirarchyhash="<?= $hirarchy ?>" createdat="<?= $db->get("created_at") ?>">
-        <div class="screenshot_container"><img src="screenshot.php?id=<?= $db->get("id") ?>"/></div>
+      <a class="patch_item" href="show.php?id=<?= $db->get("hash") ?>" hirarchyhash="<?= $hirarchy ?>" createdat="<?= $db->get("created_at") ?>">
+        <div class="screenshot_container"><img src="screenshot.php?id=<?= $db->get("hash") ?>"/></div>
         <div class="patch_meta">
           <span class="name"><?= strlen($db->get("name"))>19 ? substr($db->get("name"), 0, 19)."..." : $db->get("name") ?></span>
           <span class="author"><?= $db->get("author") ?></span>
