@@ -19,11 +19,12 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
       die;
     }
   }
+  $_REQUEST["patch"]["public"] = intval($_REQUEST["patch"]["public"]);
   $_REQUEST["patch"]["created_at"] = date('Y-m-d H:i');
   $_REQUEST["patch"]["hash"] = sha1(uniqid(mt_rand(), true));
   $db->add('patch', $_REQUEST["patch"]);
   
-  header("Location: ".$_SCRIPT["PHP_SELF"]."#create_success");
+  header("Location: ".$_SCRIPT["PHP_SELF"]."?new_patch_hash=".$_REQUEST["patch"]["hash"]."#create_success");
   die;
 }
 
@@ -79,6 +80,7 @@ function getHirarchy($id)
   <span class="message success"><span>!</span> Your patch has been saved.</span><br/>
   <p>
     We are reviewing your patch to make sure it doesn't contain any mischief. It won't take long, and it will be online shortly!<br/>
+    <?= $_REQUEST["new_patch_hash"] ?>
   </p>
   <input class="button close" type="button" value="OK"/>
 </div>
@@ -102,7 +104,7 @@ function getHirarchy($id)
 
 <div id="patchlist">
   <canvas id="connections" height="800" width="800"></canvas>
-  <? $db->query("SELECT * FROM patch ORDER BY created_at DESC"); ?>
+  <? $db->query("SELECT * FROM patch WHERE public=1 ORDER BY created_at DESC"); ?>
   <div id="patch_items">
     <? while ($db->next_record()): ?>
       <? $hirarchy = getHirarchy($db->get("id")); ?>

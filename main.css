@@ -228,6 +228,17 @@ input.text{
   margin-bottom:5px;
 }
 
+.checkbox{
+  display:block;
+  margin-left:250px;
+  margin-bottom:5px;
+}
+
+.checkbox input{
+  margin-left:0;
+  height:auto;
+}
+
 input.button{
   width:100px;
   margin-left:5px;

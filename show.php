@@ -2,9 +2,8 @@
 
 include_once('lib/class.database.php');
 
-$hash = mysql_real_escape_string($_REQUEST["id"]);
-
 $db = new databaseLocal();
+$hash = mysql_real_escape_string($_REQUEST["id"]);
 $db->query("SELECT * FROM patch WHERE hash='$hash'");
 $db->next_record();
 $name = $db->get("name");
@@ -55,6 +54,7 @@ $name = $db->get("name");
     <img src="img/placeholder.png" id="screenshot_image"/>
     <label>Title</label><input class="text" type="text" name="patch[name]"/>
     <label>Your Name</label><input class="text" type="text" name="patch[author]"/>
+    <label>Public</label><span class="checkbox"><input type="checkbox" checked="checked" name="patch[public]" value="1"/> Yes, show this patch on the frontpage</span>
     <input class="button" type="button" id="save" value="Save"/>
     <input class="button close" type="button" value="Cancel"/>
   </form>
