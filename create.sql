@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `patch` (
   `screenshot` mediumtext NOT NULL,
   `xml` text NOT NULL,
   `created_at` datetime NOT NULL,
+  `branch_updated_at` datetime NOT NULL,
   `parent_id` int(10) DEFAULT NULL,
   `activated` int(1) NOT NULL,
   `public` int(1) NOT NULL DEFAULT '0',

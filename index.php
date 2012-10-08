@@ -19,13 +19,28 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
       die;
     }
   }
+  $now = date('Y-m-d H:i');
   $_REQUEST["patch"]["public"] = intval($_REQUEST["patch"]["public"]);
-  $_REQUEST["patch"]["created_at"] = date('Y-m-d H:i');
+  $_REQUEST["patch"]["created_at"] = $now;
+  $_REQUEST["patch"]["branch_updated_at"] = $now;
   $_REQUEST["patch"]["hash"] = sha1(uniqid(mt_rand(), true));
   $db->add('patch', $_REQUEST["patch"]);
   
+  saveBranchUpdate($_REQUEST["patch"]["parent_id"], $now, $db);
+  
   header("Location: ".$_SCRIPT["PHP_SELF"]."?new_patch_hash=".urlencode($_REQUEST["patch"]["hash"])."&new_patch_public=".urlencode($_REQUEST["patch"]["public"])."#create_success");
   die;
+}
+
+function saveBranchUpdate($id, $date, $db)
+{
+  if ($id=="")
+    return;
+  $id = intval($id);
+  $db->query("UPDATE patch SET branch_updated_at='$date' WHERE id=$id");
+  $db->query("SELECT * FROM patch WHERE id=$id");
+  $db->next_record();
+  saveBranchUpdate($db->get("parent_id"), $date, $db);
 }
 
 function getNextVisibleParent($id)
@@ -47,7 +62,10 @@ function getHirarchy($id)
   $parent_id = getNextVisibleParent($id);
   if ($parent_id!="")
     $ret = getHirarchy($parent_id);
-  return $ret.'-'.str_pad($id, 4, '0', STR_PAD_LEFT);
+  $db = new databaseLocal();
+  $db->query("select 10000000000-unix_timestamp(branch_updated_at) AS topicality from patch WHERE id=$id");
+  $db->next_record();
+  return $ret.'-'.$db->get("topicality")."/".str_pad($id, 4, '0', STR_PAD_LEFT);
 }
 
 ?>
