@@ -1794,50 +1794,6 @@
    </LINK>
    <LINK dstnodeid="10397" dstpinname="Y Input Value" srcnodeid="10399" srcpinname="Position Out">
    </LINK>
-   <NODE componentmode="Hidden" id="10400" nodename="Counter (Animation)" systemname="Counter (Animation)">
-   <BOUNDS height="100" left="7485" top="16830" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="Mode" slicecount="1" values="Clamp">
-   </PIN>
-   <PIN pinname="Maximum" visible="1">
-   </PIN>
-   <PIN pinname="Up" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Down" visible="1">
-   </PIN>
-   <PIN pinname="Increment" slicecount="1" values="10">
-   </PIN>
-   </NODE>
-   <NODE componentmode="Hidden" id="10401" nodename="LT (Value)" systemname="LT (Value)">
-   <BOUNDS height="100" left="7515" top="16080" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="-0.8">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="10401" dstpinname="Input 1" srcnodeid="10321" srcpinname="Y">
-   </LINK>
-   <LINK dstnodeid="10400" dstpinname="Up" srcnodeid="10401" srcpinname="Output">
-   </LINK>
-   <NODE componentmode="Hidden" id="10402" nodename="GT (Value)" systemname="GT (Value)">
-   <BOUNDS height="100" left="7965" top="16065" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="0.8">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="10402" dstpinname="Input 1" srcnodeid="10321" srcpinname="Y">
-   </LINK>
-   <LINK dstnodeid="10400" dstpinname="Down" srcnodeid="10402" srcpinname="Output">
-   </LINK>
    <NODE componentmode="Hidden" id="10403" nodename="Switch (Value Input)" systemname="Switch (Value Input)">
    <BOUNDS height="100" left="2310" top="26700" type="Node" width="100">
    </BOUNDS>
@@ -1853,8 +1809,6 @@
    <LINK dstnodeid="10403" dstpinname="Switch" srcnodeid="10043" srcpinname="Y Output Value">
    </LINK>
    <LINK dstnodeid="10398" dstpinname="Y Input Value" srcnodeid="10403" srcpinname="Output">
-   </LINK>
-   <LINK dstnodeid="10400" dstpinname="Maximum" srcnodeid="10221" srcpinname="Y Output Value">
    </LINK>
    <NODE componentmode="Hidden" id="10414" nodename="OR (Boolean Spectral)" systemname="OR (Boolean Spectral)">
    <BOUNDS height="100" left="3195" top="23025" type="Node" width="100">
@@ -2068,16 +2022,6 @@
    </LINK>
    <LINK dstnodeid="10219" dstpinname="Y" srcnodeid="10438" srcpinname="Y Output Value">
    </LINK>
-   <NODE componentmode="Hidden" id="10440" nodename="LinearFilter (Animation)" systemname="LinearFilter (Animation)">
-   <BOUNDS height="100" left="8160" top="17292" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="Go To Position" visible="1">
-   </PIN>
-   <PIN pinname="Position Out" visible="1">
-   </PIN>
-   <PIN pinname="FilterTime" slicecount="1" values="0.2">
-   </PIN>
-   </NODE>
    <NODE componentmode="Hidden" id="10441" nodename="Min (Value)" systemname="Min (Value)">
    <BOUNDS height="100" left="5100" top="16632" type="Node" width="100">
    </BOUNDS>
@@ -2090,10 +2034,6 @@
    </NODE>
    <LINK dstnodeid="10441" dstpinname="Input 1" srcnodeid="10439" srcpinname="Output">
    </LINK>
-   <LINK dstnodeid="10441" dstpinname="Input 2" srcnodeid="10221" srcpinname="Y Output Value">
-   </LINK>
-   <LINK dstnodeid="10440" dstpinname="Go To Position" srcnodeid="10441" srcpinname="Output">
-   </LINK>
    <NODE componentmode="Hidden" id="10442" nodename="Max (Value)" systemname="Max (Value)">
    <BOUNDS height="100" left="5064" top="17124" type="Node" width="100">
    </BOUNDS>
@@ -2105,5 +2045,19 @@
    <LINK dstnodeid="10442" dstpinname="Input 1" srcnodeid="10441" srcpinname="Output">
    </LINK>
    <LINK dstnodeid="10438" dstpinname="Y Input Value" srcnodeid="10442" srcpinname="Output">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="10446">
+   <BOUNDS type="Node" left="7485" top="15255" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="50">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10047" srcpinname="Y Output Value" dstnodeid="10446" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="10446" srcpinname="Output" dstnodeid="10441" dstpinname="Input 2">
    </LINK>
    </PATCH>
