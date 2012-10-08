@@ -55,34 +55,22 @@ a:visited{
 
 #menu_bar #display_switch{
   display:inline-block;
-  margin-left:45px;
+  margin-left:50px;
+  width:auto;
 }
 
-#menu_bar #display_switch label{
-  font-weight:bold;
-  color:#dddddd;
-}
-
-#menu_bar #display_switch #display_toggle{
+#menu_bar #display_switch #display_toggle span{
   display:inline-block;
-  width:30px;
-  height:1em;
-  background:#888;
-  border-radius:3px;
-  padding:1px;
-}
-
-#menu_bar #display_switch #display_toggle div{
-  width:16px;
-  height:1em;
-  background:#dddddd;
-  border-radius:3px;
-}
-
-#menu_bar #display_switch a.display_toggle{
-  background: #aaaaaa;
-  color: #dddddd;
+  width:80px;
   padding:3px;
+}
+
+#menu_bar #display_switch a#display_toggle{
+  background:none;
+  width:172px;
+  border:1px solid #AA3;
+  color: #dddddd;
+  padding:0px;
 }
 
 #patchlist{

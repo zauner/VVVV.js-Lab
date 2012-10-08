@@ -96,10 +96,8 @@ function getHirarchy($id)
   <div id="controls">
     <a href="new.php" id="showpatch">New Patch</a>
     <div id="display_switch">
-      Display 
-      <label>Chronic</label>
-      <a href="#" id="display_toggle"><div></div></a>
-      <label>Evolution</label>
+      Toggle View:
+      <a href="#" id="display_toggle"><span>Chronic</span><span>Evolution</span></a>
     </div>
   </div>
 </div>
