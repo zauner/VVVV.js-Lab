@@ -28,15 +28,25 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
   die;
 }
 
-function getHirarchy($id)
+function getNextVisibleParent($id)
 {
   $id = intval($id);
   $db = new databaseLocal();
-  $db->query("SELECT * FROM patch WHERE id=$id");
+  $db->query("SELECT parent_patch.* FROM patch p JOIN patch parent_patch ON p.parent_id=parent_patch.id WHERE p.id=$id");
   $db->next_record();
+  if ($db->get("id")=="" || $db->get("public")==1)
+    return $db->get("id");
+  else
+    return getNextVisibleParent($db->get("id"));
+}
+
+function getHirarchy($id)
+{
+  $id = intval($id);
   $ret = '';
-  if ($db->get("parent_id")!="")
-    $ret = getHirarchy($db->get("parent_id"));
+  $parent_id = getNextVisibleParent($id);
+  if ($parent_id!="")
+    $ret = getHirarchy($parent_id);
   return $ret.'-'.str_pad($id, 4, '0', STR_PAD_LEFT);
 }
 
