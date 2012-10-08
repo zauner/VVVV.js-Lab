@@ -24,7 +24,7 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
   $_REQUEST["patch"]["hash"] = sha1(uniqid(mt_rand(), true));
   $db->add('patch', $_REQUEST["patch"]);
   
-  header("Location: ".$_SCRIPT["PHP_SELF"]."?new_patch_hash=".$_REQUEST["patch"]["hash"]."#create_success");
+  header("Location: ".$_SCRIPT["PHP_SELF"]."?new_patch_hash=".urlencode($_REQUEST["patch"]["hash"])."&new_patch_public=".urlencode($_REQUEST["patch"]["public"])."#create_success");
   die;
 }
 
@@ -79,9 +79,13 @@ function getHirarchy($id)
 <div class="shelf" id="create_success_shelf">
   <span class="message success"><span>!</span> Your patch has been saved.</span><br/>
   <p>
-    We are reviewing your patch to make sure it doesn't contain any mischief. It won't take long, and it will be online shortly!<br/>
-    <?= $_REQUEST["new_patch_hash"] ?>
+    You can get to it using this link: <nobr><a href="http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/show.php?id='.$_REQUEST["new_patch_hash"] ?>">http://<?= $_SERVER["SERVER_NAME"].dirname($_SERVER['SCRIPT_NAME']).'/show.php?id='.$_REQUEST["new_patch_hash"] ?></a></nobr>
   </p>
+  <? if ($_REQUEST["new_patch_public"]==1): ?>
+    <p>
+      We are reviewing your patch to make sure it doesn't contain any mischief, before it will be visible on the frontpage. It won't take long, and it will be online shortly!<br/>
+    </p>
+  <? endif; ?>
   <input class="button close" type="button" value="OK"/>
 </div>
 
