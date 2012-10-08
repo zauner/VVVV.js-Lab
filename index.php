@@ -1,11 +1,12 @@
 <?php
-
+session_start();
 include_once('lib/class.database.php');
 
 $db = new databaseLocal();
 
 if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
 {
+  if ($_REQUEST["patch"]["name"]!="" && $_REQUEST["patch"]["author"]!="")
   $_REQUEST["patch"]["xml"] = mysql_real_escape_string($_REQUEST["patch"]["xml"]);
   $_REQUEST["patch"]["screenshot"] = mysql_real_escape_string($_REQUEST["patch"]["screenshot"]);
   $_REQUEST["patch"]["name"] = mysql_real_escape_string($_REQUEST["patch"]["name"]);
@@ -27,6 +28,11 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
   $db->add('patch', $_REQUEST["patch"]);
   
   saveBranchUpdate($_REQUEST["patch"]["parent_id"], $now, $db);
+  
+  if ($_REQUEST["remember_name"]==1)
+    $_SESSION["author"] = $_REQUEST["patch"]["author"];
+  else
+    $_SESSION["author"] = "";
   
   header("Location: ".$_SCRIPT["PHP_SELF"]."?new_patch_hash=".urlencode($_REQUEST["patch"]["hash"])."&new_patch_public=".urlencode($_REQUEST["patch"]["public"])."#create_success");
   die;

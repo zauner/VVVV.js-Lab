@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once('lib/class.database.php');
 
 $db = new databaseLocal();
@@ -7,6 +7,11 @@ $hash = mysql_real_escape_string($_REQUEST["id"]);
 $db->query("SELECT * FROM patch WHERE hash='$hash'");
 $db->next_record();
 $name = $db->get("name");
+
+if (preg_match('/^([^0-9]*)([0-9]+)$/', $name, $match)>0)
+  $suggested_name = $match[1].($match[2]+1);
+else
+  $suggested_name = $name." #2";
 
 ?>
 
@@ -52,8 +57,8 @@ $name = $db->get("name");
     <textarea id="xml" name="patch[xml]"></textarea>
     <textarea id="screenshot_data" name="patch[screenshot]"></textarea>
     <img src="img/placeholder.png" id="screenshot_image"/>
-    <label>Title</label><input class="text" type="text" name="patch[name]"/>
-    <label>Your Name</label><input class="text" type="text" name="patch[author]"/>
+    <label>Title</label><input class="text" type="text" name="patch[name]", value="<?= $suggested_name ?>"/>
+    <label>Your Name</label><input class="text" type="text" name="patch[author]" value="<?= $_SESSION["author"] ?>"/><span class="checkbox"><input type="checkbox" name="remember_name" value="1" checked="checked"/> Remember my name</span>
     <label>Public</label><span class="checkbox"><input type="checkbox" checked="checked" name="patch[public]" value="1"/> Yes, show this patch on the frontpage</span>
     <input class="button" type="button" id="save" value="Save"/>
     <input class="button close" type="button" value="Cancel"/>
