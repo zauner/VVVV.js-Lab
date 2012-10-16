@@ -101,6 +101,8 @@ a:visited{
 .patch_item .screenshot_container{
   height:150px;
   overflow:hidden;
+  border-radius:0 0 9 0;
+  -mod-border-radius:0 0 9 0;
 }
 
 .patch_item .screenshot_container img{
@@ -109,16 +111,21 @@ a:visited{
 }
 
 .patch_item .patch_meta{
-  background:#555;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background:rgba(85, 85, 85, 0.75);
+  border-top:1px solid white;
   color:white;
   margin-top:1px;
-  padding:3px;
   text-transform:uppercase;
   border-radius:0 0 9 0;
   -mod-border-radius:0 0 9 0;
 }
 
 .patch_item .patch_meta .name{
+  margin-left:3px;
+  margin-top:3px;
   display:block;
   clear:right;
   font-size:11pt;
@@ -126,10 +133,14 @@ a:visited{
 }
 
 .patch_item .patch_meta .author{
+  margin-left:3px;
+  margin-bottom:3px;
   font-size:9pt;
 }
 
 .patch_item .patch_meta .created_at{
+  margin-right:3px;
+  margin-bottom:3px;
   font-size:9pt;
   float:right;
 }
