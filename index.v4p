@@ -2211,7 +2211,7 @@
    </PIN>
    <PIN pinname="Text" visible="1">
    </PIN>
-   <PIN pinname="Font" slicecount="1" values="sans-serif" encoded="0">
+   <PIN pinname="Font" slicecount="1" values="|&apos;Lucida Sans Unicode&apos;, sans-serif|" encoded="0">
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
@@ -2224,6 +2224,8 @@
    <PIN pinname="Transform In" visible="1">
    </PIN>
    <PIN pinname="X" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="-1">
    </PIN>
    </NODE>
    <NODE systemname="Scale (Transform)" nodename="Scale (Transform)" componentmode="Hidden" id="10489">
@@ -2245,7 +2247,7 @@
    </BOUNDS>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="10">
+   <PIN pinname="Y Input Value" slicecount="1" values="11">
    </PIN>
    </NODE>
    <LINK srcnodeid="10490" srcpinname="Y Output Value" dstnodeid="10489" dstpinname="X">
