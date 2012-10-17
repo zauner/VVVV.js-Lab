@@ -4,6 +4,7 @@ body{
   margin:0;
   margin-left:30px;
   color:#343434;
+  overflow:hidden;
 }
 
 #menu_bar{
