@@ -1965,7 +1965,7 @@
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="80">
+   <PIN pinname="Input 2" slicecount="1" values="100">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
