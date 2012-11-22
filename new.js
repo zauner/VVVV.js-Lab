@@ -12,7 +12,7 @@ $(document).ready(function() {
       $('#log_message').fadeOut();
     }, 3000);
   }
-  VVVV.init('vvvv_js-b687505452', 'full', function() {
+  VVVV.init('vvvv_js-26c779666', 'full', function() {
   
     patch = new VVVV.Core.Patch("ws://localhost",
       function() {
