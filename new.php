@@ -5,10 +5,10 @@ session_start();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>VVVV.js Lab: New Patch</title>
-<link rel="stylesheet" type="text/css" href="vvvv_js-b687505452/vvvviewer/vvvv.css"/>
+<link rel="stylesheet" type="text/css" href="vvvv_js-26c779666/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="main.css"/>
 <link rel="stylesheet" type="text/css" href="show.css"/>
-<script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.7.1.min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.8.2.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/vvvv.js"></script>
 <script language="JavaScript" src="new.js?b6sddd87505452"></script>

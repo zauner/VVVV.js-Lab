@@ -82,7 +82,7 @@ function getHirarchy($id)
 <title>VVVV.js Lab</title>
 <link rel="stylesheet" type="text/css" href="vvvv_js-26c779666/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="main.css"/>
-<script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.7.1.min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.8.2.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/vvvv.js"></script>
 <script language="VVVV" src="index.v4p"></script>
