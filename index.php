@@ -145,7 +145,7 @@ function getHirarchy($id)
 
 <div id="patchlist">
   <canvas id="connections" height="800" width="800"></canvas>
-  <? $db->query("SELECT * FROM patch WHERE public=1 ORDER BY created_at DESC"); ?>
+  <? $db->query("SELECT * FROM patch WHERE public=1 AND activated=1 ORDER BY created_at DESC"); ?>
   <div id="patch_items">
     <? while ($db->next_record()): ?>
       <? $hirarchy = getHirarchy($db->get("id")); ?>
