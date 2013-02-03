@@ -27,8 +27,10 @@ else
 <link rel="stylesheet" type="text/css" href="main.css"/>
 <link rel="stylesheet" type="text/css" href="show.css"/>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.8.2.min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/lib/underscore/underscore-min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/lib/glMatrix-0.9.5.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
-<script language="JavaScript" src="vvvv_js-26c779666/vvvv.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/vvvv.min.js"></script>
 <script language="VVVV" src="patch.v4p.php?id=<?= $hash ?>"></script>
 <script language="JavaScript" src="show.js?b6875054sfs52"></script>
 </head>

@@ -34,6 +34,9 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
   else
     $_SESSION["author"] = "";
   
+  if ($_REQUEST["patch"]["public"]==1)
+    mail('matthias@zauner900.net', "New Patch in the VVVV.js Lab", "Hi, it's ".$_REQUEST["patch"]["hash"]);
+  
   header("Location: ".$_SCRIPT["PHP_SELF"]."?new_patch_hash=".urlencode($_REQUEST["patch"]["hash"])."&new_patch_public=".urlencode($_REQUEST["patch"]["public"])."#create_success");
   die;
 }
@@ -83,8 +86,10 @@ function getHirarchy($id)
 <link rel="stylesheet" type="text/css" href="vvvv_js-26c779666/vvvviewer/vvvv.css"/>
 <link rel="stylesheet" type="text/css" href="main.css"/>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.8.2.min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/lib/underscore/underscore-min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/lib/glMatrix-0.9.5.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
-<script language="JavaScript" src="vvvv_js-26c779666/vvvv.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/vvvv.min.js"></script>
 <script language="VVVV" src="index.v4p"></script>
 <script language="JavaScript">
   $(window).load(function() {
