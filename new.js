@@ -1,5 +1,6 @@
 $(document).ready(function() {
   VVVV.Config.auto_undo = true;
+  VVVV.ImageProxyPrefix = 'fileproxy.php?f=';
   var patch;
   var mainloop;
   
