@@ -25,6 +25,8 @@ div.screenshot_toolbar a{
   right:0px;
   top:95px;
   border:1px solid #555555;
+  display:none;
+  overflow:scroll;
 }
 
 #menu_bar #social_buttons{

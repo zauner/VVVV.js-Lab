@@ -73,7 +73,9 @@ $(document).ready(function() {
       $('.shelf').slideUp();
       if (!vvvviewer) {
         vvvviewer = new VVVV.VVVViewer(VVVV.Patches[0], '#patch');
-        $('#patch').slideDown();
+        $('#patch').css('width', '600px');
+        $('#patch').css('height', '600px');
+        $('#patch').show();
         $('#showpatch').text('Hide Patch');
       }
       else {
