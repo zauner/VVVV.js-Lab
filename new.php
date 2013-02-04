@@ -16,6 +16,8 @@ session_start();
 </script>
 <script language="JavaScript" src="main.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/vvvv.min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/lib/d3-v1.14/d3.min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/vvvviewer/vvvv.vvvviewer.js"></script>
 <script language="JavaScript" src="new.js?b6sddd87505452"></script>
 </head>
 <body>
