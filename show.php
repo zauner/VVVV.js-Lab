@@ -27,6 +27,11 @@ else
 <link rel="stylesheet" type="text/css" href="main.css"/>
 <link rel="stylesheet" type="text/css" href="show.css"/>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.8.2.min.js"></script>
+<script language="JavaScript">
+  if (!$.browser.webkit && !$.browser.mozilla) {
+    location.href = "../notsupported.html"; 
+  }
+</script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/underscore/underscore-min.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/glMatrix-0.9.5.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
