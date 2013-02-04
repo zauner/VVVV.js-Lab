@@ -87,7 +87,7 @@ else
     To connect the lab to your VVVV, you need the following:
     <ol>
       <li><a href="http://www.vvvv.org/downloads" target="_new">VVVV 45beta27 or higher</a> running on your machine</li>
-      <li>The latest <a href="../vvvv_js_sdk-0.2.0.tar.gz">VVVV.js SDK</a></li>
+      <li>The latest <a href="/download/vvvv_js_sdk-0.2.0.tar.gz">VVVV.js SDK</a></li>
       <li>An empty patch, containing only a VVVVJsConnector node</li>
     </ol>
   </p>
