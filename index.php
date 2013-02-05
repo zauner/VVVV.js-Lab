@@ -141,7 +141,7 @@ function getHirarchy($id)
   </p>
   <p>
     The coolest thing about that is: <b>you don't have to deploy VVVV.js anywhere yourself to try it.</b> The only things you have to do is
-    downloading the <a href="https://github.com/downloads/zauner/vvvv.js/vvvv_js_sdk-0.2.zip">VVVV.js SDK</a>, extracting it, and adding its
+    downloading the <a href="../download/vvvv_js_sdk-0.2.zip">VVVV.js SDK</a>, extracting it, and adding its
     path to the list of VVVV contribution paths in your root patch.
   </p>
   <p>
