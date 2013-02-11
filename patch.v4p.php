@@ -1,5 +1,6 @@
 <?php
 
+header('Content-type: application/octest-stream');
 include_once('lib/class.database.php');
 
 $db = new databaseLocal();
