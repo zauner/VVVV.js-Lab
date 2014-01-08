@@ -16,6 +16,12 @@ $(document).ready(function() {
 
   $('.close').click(function() {
     $('.shelf').slideUp();
+  })
+  
+  $('#about').click(function() {
+    console.log('oi');
+    openShelf('welcome');
+    return false;
   })  
 
 });

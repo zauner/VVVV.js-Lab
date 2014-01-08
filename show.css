@@ -1,3 +1,7 @@
+body{
+  overflow:auto;
+}
+
 textarea{
   display:none;
 }
@@ -12,6 +16,7 @@ div.screenshot_toolbar{
 
 div.screenshot_toolbar a{
   color:white;
+  text-decoration:none;
 }
 
 #screenshot_image{

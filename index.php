@@ -4,7 +4,7 @@ include_once('lib/class.database.php');
 
 $db = new databaseLocal();
 
-if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create")
+if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create" && strpos($_REQUEST["patch"]["xml"], "<!DOCTYPE PATCH ")===0)
 {
   if ($_REQUEST["patch"]["name"]!="" && $_REQUEST["patch"]["author"]!="")
   $_REQUEST["patch"]["xml"] = mysql_real_escape_string($_REQUEST["patch"]["xml"]);
@@ -96,7 +96,6 @@ function getHirarchy($id)
 <script language="JavaScript" src="main.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/vvvv.min.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/d3-v1.14/d3.min.js"></script>
-<script language="JavaScript" src="vvvv_js-26c779666/vvvviewer/vvvv.vvvviewer.js"></script>
 <script language="VVVV" src="index.v4p"></script>
 <script language="JavaScript">
   $(window).load(function() {
@@ -112,7 +111,8 @@ function getHirarchy($id)
 <div id="menu_bar">
   <a class="page_title">VVVV.js <span>Lab</span></a class="page_title">
   <div id="controls">
-    <a href="new.php" id="showpatch">New Patch</a>
+    <a id="about" href="#">What is this?</a>
+    <a href="show.php#edit">New Patch</a>
     <div id="display_switch">
       Toggle View:
       <a href="#" id="display_toggle"><span>Chronic</span><span>Evolution</span></a>
@@ -140,9 +140,8 @@ function getHirarchy($id)
     any of the VVVV.js patches below, alter them, and submit your own version to the gallery.
   </p>
   <p>
-    The coolest thing about that is: <b>you don't have to deploy VVVV.js anywhere yourself to try it.</b> The only things you have to do is
-    downloading the <a href="../download/vvvv_js_sdk-0.2.zip">VVVV.js SDK</a>, extracting it, and adding its
-    path to the list of VVVV contribution paths in your root patch.
+    The coolest thing about that is: <b>you don't have to deploy VVVV.js anywhere yourself to try it.</b> You don't even have to install
+    any additional software, as the VVVV.js editor <b>fully works in your browser</b>.
   </p>
   <p>
     Enjoy!
@@ -167,6 +166,22 @@ function getHirarchy($id)
     <? endwhile; ?>
   </div>
 </div>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=7067416; 
+var sc_invisible=1; 
+var sc_security="cfe91c6a"; 
+</script>
+
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+class="statcounter"><a title="free web stats"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/7067416/0/cfe91c6a/1/"
+alt="free web stats" ></a></div></noscript>
+<!-- End of StatCounter Code -->
 
 </body>
 </html>

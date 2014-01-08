@@ -5,6 +5,7 @@ body{
   margin-left:30px;
   color:#343434;
   overflow:hidden;
+  font-size:10pt;
 }
 
 #menu_bar{
@@ -19,6 +20,7 @@ body{
 
 #menu_bar a.page_title{
   display:inline-block;
+  text-decoration:none;
   font-weight:bold;
   font-size:14pt;
   color:#dddddd;
@@ -168,6 +170,12 @@ a:visited{
   font-size:14pt;
 }
 
+.shelf h3{
+  margin-top:0px;
+  font-weight:bold;
+  font-size:12pt;
+}
+
 .shelf a, .shelf a:visited{
   text-decoration:underline;
   color:black;
@@ -175,6 +183,10 @@ a:visited{
 
 .shelf p{
   width:600px;
+}
+
+.shelf#help_shelf p{
+  width:800px;
 }
 
 .shelf .message{
@@ -241,4 +253,36 @@ input.text{
 input.button{
   width:100px;
   margin-left:5px;
+}
+
+/* Cheat Sheet */
+
+.clear{
+  clear:both;
+}
+
+.quickhelp{
+  font-size:12px;
+  list-style:none;
+  padding-left:0;
+}
+.quickhelp li{
+  float:left;
+  width:295px;
+  height:175px;
+  background-color:#D1D1D1;
+  padding:5px;
+  line-height:2em;
+  margin-bottom:1em;
+  margin-right:1em;
+}
+.helptopic{
+  font-weight:bold;
+  display:block;
+}
+.ui-action{
+  background-color:black;
+  color: white;
+  border-radius:2px;
+  padding:0 4 0 4;
 }

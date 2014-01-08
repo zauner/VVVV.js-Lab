@@ -37,7 +37,6 @@ else
 <script language="JavaScript" src="main.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/vvvv.min.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/d3-v1.14/d3.min.js"></script>
-<script language="JavaScript" src="vvvv_js-26c779666/vvvviewer/vvvv.vvvviewer.js"></script>
 <script language="VVVV" src="patch.v4p.php?id=<?= $hash ?>"></script>
 <script language="JavaScript" src="show.js?b6875054sfs52"></script>
 </head>
@@ -48,8 +47,8 @@ else
 <div id="menu_bar">
   <a href="index.php" class="page_title">VVVV.js <span>Lab</span></a>
   <div id="controls">
-    <a href="#" id="showpatch">Show Patch</a>
-    <a href="#edit" id="edit">Sync to VVVV + Edit</a>
+    <a href="index.php">&lt; Index</a>
+    <a href="#edit" id="edit">Edit Patch</a>
     <a href="#" id="open_save_shelf" class="disabled">Save As ...</a>
     <a href="#" class="open_help_shelf">Need Help?</a>
   </div>
@@ -62,7 +61,9 @@ else
 <div class="shelf" id="save_shelf">
   <form action="index.php" method="post" id="new_form">
     <input type="hidden" name="action" value="create"/>
-    <input type="hidden" name="patch[parent_id]" value="<?= $hash ?>"/>
+    <? if ($hash!=""): ?>
+      <input type="hidden" name="patch[parent_id]" value="<?= $hash ?>"/>
+    <? endif ?>
     <textarea id="xml" name="patch[xml]"></textarea>
     <textarea id="screenshot_data" name="patch[screenshot]"></textarea>
     <img src="img/placeholder.png" id="screenshot_image"/>
@@ -81,33 +82,50 @@ else
 <div class="shelf" id="help_shelf">
   <h2>Help</h2>
   <p>
-    Here at the <b>VVVV.js lab</b>, you can <b>push every patch to a VVVV instance</b> on your machine, play around with it, and <b>save it as a new revision</b>. Don't worry, you won't break or overwrite anything doing so.<br/>
+    Here at the <b>VVVV.js lab</b>, you can <b>edit every VVVV.js patch in your browser</b> without any additional software, and <b>save it as a new revision</b>. Don't worry, you won't break or overwrite anything doing so.<br/>
   </p>
   <p>
-    To connect the lab to your VVVV, you need the following:
-    <ol>
-      <li><a href="http://www.vvvv.org/downloads" target="_new">VVVV 45beta27 or higher</a> running on your machine</li>
-      <li>The latest <a href="../download/vvvv_js_sdk-0.2.0.tar.gz">VVVV.js SDK</a></li>
-      <li>An empty patch, containing only a VVVVJsConnector node</li>
-    </ol>
+    Just hit the <b>"Edit Patch" button</b> and the patch will open in a new window. Make sure to <b>allow popups</b> for this page. When you are happy with your result, you can save it by hitting <b>"Save as ..."</b>. 
   </p>
   <p>
-    There's a <b>detailed guide</b> about setting all this up at substance.io: <a href="http://substance.io/zauner/patching-vvvvjs" target="_new">Patching VVVV.js</a>.
+    <h3>Patching Cheat Sheet</h3>
+    
+    <ul class="quickhelp">
+      <li><span class="helptopic">Create nodes</span> <span class="ui-action">Double-Click</span> anywhere in the patch</li>
+      <li><span class="helptopic">Draw connections</span> <span class="ui-action">Left-Click</span> pin to start connection;<br/>
+        <span class="ui-action">Left-Click</span> other pin to create the connection
+      </li>
+      <li><span class="helptopic">Delete connection</span> <span class="ui-action">Right-Click</span> connection/link</li>
+      <li><span class="helptopic">Modify numeric values</span> <span class="ui-action">Right-Click</span> pin or IOBox; enter value or use<br/>
+        <span class="ui-action">Mouse Wheel</span> to modulate;<br/>
+        <span class="ui-action">Alt</span> + <span class="ui-action">Mouse Wheel</span> to make smaller adjustments</li>
+      <li><span class="helptopic">Modify color values</span> <span class="ui-action">Right-Click</span> pin or IOBox;<br/>
+        <span class="ui-action">Mouse Wheel</span> to modulate hue<br/>
+        <span class="ui-action">Shift</span> + <span class="ui-action">Mouse Wheel</span> to modulate lightness/value<br/>
+        <span class="ui-action">Alt</span> + <span class="ui-action">Mouse Wheel</span> to modulate saturation<br/>
+        <span class="ui-action">Shift</span>+ <span class="ui-action">Alt</span> + <span class="ui-action">Mouse Wheel</span> to modulate alpha<br/>
+      </li>
+      <li><span class="helptopic">Open Inspektor</span> <span class="ui-action">Ctrl</span> + <span class="ui-action">I</span></li>
+      <li><span class="helptopic">Select Nodes</span>
+        <span class="ui-action">Shift</span> + <span class="ui-action">Left-Click</span> to select multiple nodes<br/>
+        <span class="ui-action">Draw selection area</span> to area-select multiple nodes<br/>
+        <span class="ui-action">Ctrl</span> + <span class="ui-action">A</span> to select all nodes
+      </li>
+      <li><span class="helptopic">Copy/Paste</span>
+        <span class="ui-action">Ctrl</span> + <span class="ui-action">C</span> to copy<br/>
+        <span class="ui-action">Ctrl</span> + <span class="ui-action">V</span> to paste<br/>
+        (You can also copy to/paste from classic VVVV)
+      </li>
+      <li><span class="helptopic">Save As</span> <span class="ui-action">Ctrl</span> + <span class="ui-action">S</span> (triggers file download)</li>
+    </ul>
   </p>
-  <p>
-    If you got everything right, just hit the <b>"Sync to VVVV + Edit"</b> button on the upper left, and the patch should be pushed to your classic VVVV.
-    You can patch around then, <b>see the results in the browser</b>, and hit "Save As ..." to give save it as a new version, providing <b>a screenshot and a name</b>.
-  </p>
-  <p>
-    If you have trouble, hit the "Show Patch" button, and have a look of what VVVV.js made of your patch. Maybe you stumble upon some <b>red nodes</b>,
-    which means that these nodes have <b>not been ported to VVVV.js yet</b>.
-  </p>
+  <div class="clear"></div>
   <input class="button close" type="button" value="Close"/>
 </div>
 
 <div class="shelf" id="connection_error_shelf">
-  <span class="message error"><span>!</span> Sorry, couldn't connect to VVVV!</span><br/>
-  Make sure, you have <b>VVVV running an empty VVVV patch</b>, containing only a <b>VVVVJsConnector</b> node.
+  <span class="message error"><span>!</span> Sorry, couldn't open the VVVV.js Editor!</span><br/>
+  We tried to open it in a pop-up but your browser seemed to block it. After allowing pop-ups for this page and reloading, it should fire up nicely.
   <p>
     Do you need help?
   </p>
@@ -116,8 +134,8 @@ else
 </div>
 
 <div class="shelf" id="not_connected_shelf">
-  <span class="message error"><span>!</span> There's no connection to VVVV yet.</span><br/>
-  To save a new revision of this patch, <b>start VVVV on your machine</b>, and add the <b>VVVVJsConnector</b> node to an empty patch. Then hit the <b>"Sync to VVVV + Edit"</b> button.
+  <span class="message error"><span>!</span> There isn't really anything to save, is it?</span><br/>
+  To save a new revision of this patch, launch the Patch Editor by hitting the <b>Edit Patch</b> button.
   <p>
     Do you need help?
   </p>
@@ -128,6 +146,22 @@ else
 <h1><?= $name ?></h1>
 
 <div id="patch"></div>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=7067416; 
+var sc_invisible=1; 
+var sc_security="cfe91c6a"; 
+</script>
+
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+class="statcounter"><a title="free web stats"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/7067416/0/cfe91c6a/1/"
+alt="free web stats" ></a></div></noscript>
+<!-- End of StatCounter Code -->
 
 </body>
 </html>

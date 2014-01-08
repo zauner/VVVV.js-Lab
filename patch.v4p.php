@@ -1,5 +1,8 @@
 <?php
 
+if ($_REQUEST["id"]=="")
+  echo "";
+
 include_once('lib/class.database.php');
 
 $db = new databaseLocal();

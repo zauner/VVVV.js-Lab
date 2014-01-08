@@ -13,9 +13,8 @@ $(document).ready(function() {
   }
   VVVV.init('vvvv_js-26c779666', 'full', function() {
   
-    function establishVVVVConnection() {
-      VVVV.Patches[0].VVVVConnector.host = 'ws://localhost';
-      VVVV.Patches[0].VVVVConnector.enable({
+    function openEditor() {
+      VVVV.Editors["edit"].enable(VVVV.Patches[0], {
         success: function() {
           $('.shelf').slideUp();
           $('#open_save_shelf').removeClass('disabled');
@@ -28,11 +27,11 @@ $(document).ready(function() {
       });
     }
     if (window.location.hash=='#edit')
-      establishVVVVConnection();
+      openEditor();
     
     $(window).bind('hashchange', function() {
       if (window.location.hash=='#edit')
-        establishVVVVConnection(); 
+        openEditor(); 
     });
     
     $('#open_save_shelf').click(function() {
@@ -60,11 +59,8 @@ $(document).ready(function() {
         alert("Please give a title and your name.");
         return false;
       }
-      VVVV.Patches[0].VVVVConnector.pullCompletePatch();
-      window.setTimeout(function() {
-        $('#xml').text(VVVV.Patches[0].XMLCode);
-        $('#new_form').submit();
-      }, 1000);
+      $('#xml').text(VVVV.Patches[0].toXML());
+      $('#new_form').submit();
       return false;
     });
     
