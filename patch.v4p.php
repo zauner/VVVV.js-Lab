@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: application/octest-stream');
+
 if ($_REQUEST["id"]=="")
   echo "";
 
