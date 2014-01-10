@@ -29,9 +29,8 @@ $(document).ready(function() {
     if (window.location.hash=='#edit')
       openEditor();
     
-    $(window).bind('hashchange', function() {
-      if (window.location.hash=='#edit')
-        openEditor(); 
+    $('#edit').click('hashchange', function() {
+      openEditor(); 
     });
     
     $('#open_save_shelf').click(function() {
