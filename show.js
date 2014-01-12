@@ -12,6 +12,7 @@ $(document).ready(function() {
     }, 3000);
   }
   VVVV.init('vvvv_js-26c779666', 'full', function() {
+    VVVV.fps = 30;
   
     function openEditor() {
       VVVV.Editors["edit"].enable(VVVV.Patches[0], {
