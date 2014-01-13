@@ -60,6 +60,7 @@ $(document).ready(function() {
         return false;
       }
       $('#xml').text(VVVV.Patches[0].toXML());
+      VVVV.Patches[0].editor.disable();
       $('#new_form').submit();
       return false;
     });
