@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `patch` (
   `parent_id` int(10) DEFAULT NULL,
   `activated` int(1) NOT NULL,
   `public` int(1) NOT NULL DEFAULT '0',
+  `featured` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
