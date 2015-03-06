@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
   <PATCH>
-  <BOUNDS type="Window" width="14865" height="31020">
+  <BOUNDS type="Window" width="14400" height="31020">
   </BOUNDS>
   <NODE id="10001" nodename="VVVVJsConnector (VVVVjs)" systemname="VVVVJsConnector (VVVVjs)" componentmode="Hidden">
   <BOUNDS type="Node" left="0" top="0" width="100" height="100">
@@ -231,7 +231,7 @@
   </BOUNDS>
   <PIN pinname="[ From .." visible="1" values="|0|">
   </PIN>
-  <PIN pinname=".. To [" visible="1" values="|20|">
+  <PIN pinname=".. To [" visible="1" values="|30|">
   </PIN>
   <PIN pinname="Descriptive Name" visible="0" values="||">
   </PIN>
