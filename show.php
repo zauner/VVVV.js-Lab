@@ -29,21 +29,21 @@ else
 <script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.8.2.min.js"></script>
 <script language="JavaScript">
   if (!$.browser.webkit && !$.browser.mozilla) {
-    location.href = "../notsupported.html"; 
+    location.href = "../notsupported.html";
   }
 </script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/underscore/underscore-min.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/glMatrix-0.9.5.min.js"></script>
 <script language="JavaScript" src="main.js"></script>
-<script language="JavaScript" src="vvvv_js-26c779666/vvvv.min.js"></script>
+<script language="JavaScript" src="vvvv_js-26c779666/vvvv.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/d3-v1.14/d3.min.js"></script>
-<script language="VVVV" src="patch.v4p.php?id=<?= $hash ?>"></script>
+<link rel="VVVV" href="patch.v4p.php?id=<?= $hash ?>"/>
 <script language="JavaScript" src="show.js?b6875054sfs52"></script>
 </head>
 <body>
   
 <img src="screenshot.php?id=<?= $hash ?>" style="display:none"/>
-  
+
 <div id="menu_bar">
   <a href="index.php" class="page_title">VVVV.js <span>Lab</span></a>
   <div id="controls">
@@ -76,7 +76,7 @@ else
 </div>
 
 <div id="log_message">
-  
+
 </div>
 
 <div class="shelf" id="help_shelf">
@@ -85,11 +85,11 @@ else
     Here at the <b>VVVV.js lab</b>, you can <b>edit every VVVV.js patch in your browser</b> without any additional software, and <b>save it as a new revision</b>. Don't worry, you won't break or overwrite anything doing so.<br/>
   </p>
   <p>
-    Just hit the <b>"Edit Patch" button</b> and the patch will open in a new window. Make sure to <b>allow popups</b> for this page. When you are happy with your result, you can save it by hitting <b>"Save as ..."</b>. 
+    Just hit the <b>"Edit Patch" button</b> and the patch will open in a new window. Make sure to <b>allow popups</b> for this page. When you are happy with your result, you can save it by hitting <b>"Save as ..."</b>.
   </p>
   <p>
     <h3>Patching Cheat Sheet</h3>
-    
+
     <ul class="quickhelp">
       <li><span class="helptopic">Create nodes</span> <span class="ui-action">Double-Click</span> anywhere in the patch</li>
       <li><span class="helptopic">Draw connections</span> <span class="ui-action">Left-Click</span> pin to start connection;<br/>
@@ -149,9 +149,9 @@ else
 
 <!-- Start of StatCounter Code -->
 <script type="text/javascript">
-var sc_project=7067416; 
-var sc_invisible=1; 
-var sc_security="cfe91c6a"; 
+var sc_project=7067416;
+var sc_invisible=1;
+var sc_security="cfe91c6a";
 </script>
 
 <script type="text/javascript"

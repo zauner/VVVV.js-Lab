@@ -1,7 +1,6 @@
 $(document).ready(function() {
-  VVVV.Config.auto_undo = true;
   VVVV.ImageProxyPrefix = 'fileproxy.php?f=';
-  
+
   var message_hide_timeout;
   VVVV.onNotImplemented = function(nodename) {
     clearTimeout(message_hide_timeout);
@@ -13,9 +12,10 @@ $(document).ready(function() {
   }
   VVVV.init('vvvv_js-26c779666', 'full', function() {
     VVVV.fps = 30;
-  
+
     function openEditor() {
-      VVVV.Editors["edit"].enable(VVVV.Patches[0], {
+      var ed = new VVVV.Editors.BrowserEditor.Interface();
+      ed.enable(VVVV.Patches[0], {
         success: function() {
           $('.shelf').slideUp();
           $('#open_save_shelf').removeClass('disabled');
@@ -29,26 +29,26 @@ $(document).ready(function() {
     }
     if (window.location.hash=='#edit')
       openEditor();
-    
+
     $('#edit').click('hashchange', function() {
-      openEditor(); 
+      openEditor();
     });
-    
+
     $('#open_save_shelf').click(function() {
       if ($(this).hasClass('disabled')) {
         openShelf('not_connected');
         return false;
       }
       openShelf('save');
-  
+
       return false;
     });
-    
+
     $('.open_help_shelf').click(function() {
       openShelf('help');
       return false;
     });
-    
+
     $('#save').click(function() {
       if ($('#screenshot_data').text().length==0) {
         alert("You should make a screenshot for the gallery before you save. Just hit the Screenshot button on the top left of a renderer.");
@@ -64,7 +64,7 @@ $(document).ready(function() {
       $('#new_form').submit();
       return false;
     });
-    
+
     var vvvviewer = undefined;
     $('#showpatch').click(function() {
       $('.shelf').slideUp();
@@ -82,20 +82,20 @@ $(document).ready(function() {
           $('#patch').empty();
           $('#showpatch').text('Show Patch');
         });
-        
+
       }
-      
+
       return false;
     });
-    
+
     window.setInterval(function() {
       $('canvas').each(function() {
         if (!$(this).next().is('div.screenshot_toolbar')) {
           var that = this;
           $screenshot_toolbar = $('<div class="screenshot_toolbar"><a href="#" class="make_screenshot">Screenshot</a></div>');
           $(this).after($screenshot_toolbar);
-          
-          if (location.hash=='#edit') 
+
+          if (location.hash=='#edit')
             $screenshot_toolbar.css('display', 'block');
           $screenshot_toolbar.css('top', $(this).position().top);
           $screenshot_toolbar.css('left', $(this).position().left);
@@ -110,5 +110,5 @@ $(document).ready(function() {
       })
     }, 1000);
   });
-  
+
 })

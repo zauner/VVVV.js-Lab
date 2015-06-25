@@ -26,17 +26,17 @@ if (isset($_REQUEST["action"]) && $_REQUEST["action"]=="create" && strpos($_REQU
   $_REQUEST["patch"]["branch_updated_at"] = $now;
   $_REQUEST["patch"]["hash"] = sha1(uniqid(mt_rand(), true));
   $db->add('patch', $_REQUEST["patch"]);
-  
+
   saveBranchUpdate($_REQUEST["patch"]["parent_id"], $now, $db);
-  
+
   if ($_REQUEST["remember_name"]==1)
     $_SESSION["author"] = $_REQUEST["patch"]["author"];
   else
     $_SESSION["author"] = "";
-  
+
   if ($_REQUEST["patch"]["public"]==1)
     mail('matthias@zauner900.net', "New Patch in the VVVV.js Lab", "Hi, it's ".$_REQUEST["patch"]["hash"]);
-  
+
   header("Location: ".$_SCRIPT["PHP_SELF"]."?new_patch_hash=".urlencode($_REQUEST["patch"]["hash"])."&new_patch_public=".urlencode($_REQUEST["patch"]["public"])."#create_success");
   die;
 }
@@ -88,7 +88,7 @@ function getHirarchy($id)
 <script language="JavaScript" src="vvvv_js-26c779666/lib/jquery/jquery-1.8.2.min.js"></script>
 <script language="JavaScript">
   if (!$.browser.webkit && !$.browser.mozilla) {
-    location.href = "../notsupported.html"; 
+    location.href = "../notsupported.html";
   }
 </script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/underscore/underscore-min.js"></script>
@@ -96,7 +96,7 @@ function getHirarchy($id)
 <script language="JavaScript" src="main.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/vvvv.min.js"></script>
 <script language="JavaScript" src="vvvv_js-26c779666/lib/d3-v1.14/d3.min.js"></script>
-<script language="VVVV" src="index.v4p"></script>
+<link rel="VVVV" href="index.v4p"/>
 <script language="JavaScript">
   $(window).load(function() {
     VVVV.init('vvvv_js-26c779666', 'full', function() {
@@ -107,7 +107,7 @@ function getHirarchy($id)
 </script>
 </head>
 <body>
-  
+
 <div id="menu_bar">
   <a class="page_title">VVVV.js <span>Lab</span></a class="page_title">
   <div id="controls">
@@ -169,9 +169,9 @@ function getHirarchy($id)
 
 <!-- Start of StatCounter Code -->
 <script type="text/javascript">
-var sc_project=7067416; 
-var sc_invisible=1; 
-var sc_security="cfe91c6a"; 
+var sc_project=7067416;
+var sc_invisible=1;
+var sc_security="cfe91c6a";
 </script>
 
 <script type="text/javascript"
